@@ -1,0 +1,17 @@
+<h1>Writable Signals</h1>
+<pre><b>Count : </b>{{ count() | json }}</pre>
+<button (click)="setCount()">Set Count</button>
+<button (click)="increaseCount()">Increase Count</button>
+<button (click)="decreaseCount()">Decrease Count</button><br>
+
+<pre><b>colors : </b>{{ colors() | json }}</pre>
+<button (click)="addYellowColor()">Add Color</button><br>
+
+<h1>Computed Signals</h1>
+<pre><b>Height : </b>{{ height() | json }}</pre>
+<pre><b>Width : </b>{{ width() | json }}</pre>
+<pre><b>Area : </b>{{ area() | json }}</pre>
+<button (click)="increaseHeight()">Increase Height</button>
+<button (click)="decreaseHeight()">Decrease Height</button>
+<button (click)="increaseWidth()">Increase Width</button>
+<button (click)="decreaseWidth()">Decrease Width</button>
