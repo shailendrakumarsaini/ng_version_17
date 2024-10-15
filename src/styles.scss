@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+nav{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid red;
+}
+.container{
+    border: 2px solid #bf2fff;
+    margin: 5px 0px;
+    padding: 5px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}

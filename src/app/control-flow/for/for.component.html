@@ -1,0 +1,5 @@
+@for(user of users; track user.id){
+    <pre> Hellow {{user.name}} your age is {{user.age}}</pre>
+} @empty {
+    <h3>No users are available</h3>
+}  
