@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
+import { ThrottleTimeComponent } from './rxjs/throttle-time/throttle-time.component';
 
 export const routes: Routes = [
     { path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
@@ -24,7 +25,8 @@ export const routes: Routes = [
             { path: '', redirectTo: 'map', pathMatch: 'full' },
             { path: 'map', component: MapComponent },
             { path: 'filter', component : FilterComponent },
-            { path: 'debounce-time', component : DebounceTimeComponent }
+            { path: 'debounce-time', component : DebounceTimeComponent },
+            { path: 'throttle-time', component : ThrottleTimeComponent }
         ]
     }
 ];
