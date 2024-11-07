@@ -4,9 +4,11 @@ import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
 import { ThrottleTimeComponent } from './rxjs/throttle-time/throttle-time.component';
 import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
+import { TeamsComponent } from './teams/teams.component';
 
 export const routes: Routes = [
     { path :'currency-converter', component: CurrencyConverterComponent },
+    { path :'team', component: TeamsComponent },
     { path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
     { path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
     {

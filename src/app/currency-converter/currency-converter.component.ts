@@ -16,13 +16,21 @@ export class CurrencyConverterComponent {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.currencyCodes = [{ name: "USA", code: "USD" }, { name: "EURO", code: "EUR" }, { name: "GBBB", code: "GBP" }, { name: "Japan", code: "JPY" }, { name: "Newzeland", code: "NGN" }]
+    this.currencyCodes = [
+      { name: "USA", code: "USD" }, 
+      { name: "EURO", code: "EUR" }, 
+      { name: "GBBB", code: "GBP" }, 
+      { name: "Japan", code: "JPY" }, 
+      { name: "Newzeland", code: "NGN" }
+    ]
   }
 
   convertToRate(amount: any, convertFrom: any, convertTo: any) {
     let result = 0;
     let response = this.apiService.getRates(convertFrom);
+    console.log(response);
     result = parseFloat(response.rates[convertTo].toFixed(2));
+    console.log(result);
     this.resultText = `${amount} ${convertFrom} = ${result} ${convertTo}`;
   }
 }

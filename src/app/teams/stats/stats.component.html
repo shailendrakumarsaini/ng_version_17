@@ -1,0 +1,18 @@
+<div>
+    <div data-name="name"><b>Name : </b>{{teams.fullname}} {{teams.code}} </div>
+
+    <div data-name="full"><b>Association :</b>{{stats.association}}ern Association</div>
+
+    <div data-name="count"><b>Average :</b>{{stats?.avaragepointconceded}}</div>
+
+    <div data-name="Scored"><b>Score :</b>{{stats?.avaragepointscored}}</div>
+
+    <div data-name="lastwin" *ngFor="let win of stats?.lastWins">
+        <p class="type" [ngClass]="{'W' : win ==='W','L': win ==='L'}">{{win}}</p>
+    </div>
+
+    <img src="https://interstate21.com/nba-logos/{{teams.code}}.png" />
+
+    <!-- <pre>{{ teams | json }}</pre>
+    <pre>{{ stats | json }}</pre> -->
+</div>
