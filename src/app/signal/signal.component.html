@@ -1,7 +1,10 @@
 
 <div class="container">
     <h1>Control Flow Component</h1>
-    <h2>Writable Signals</h2>
+    <div *ngIf="test">
+        some content
+    </div>
+    <!-- <h2>Writable Signals</h2>
     <pre><b>Count : </b>{{ count() | json }}</pre>
     <button (click)="setCount()">Set Count</button>
     <button (click)="increaseCount()">Increase Count</button>
@@ -17,5 +20,6 @@
     <button (click)="increaseHeight()">Increase Height</button>
     <button (click)="decreaseHeight()">Decrease Height</button>
     <button (click)="increaseWidth()">Increase Width</button>
-    <button (click)="decreaseWidth()">Decrease Width</button>
+    <button (click)="decreaseWidth()">Decrease Width</button> -->
+    <button (click)="test = true">Decrease Width</button> 
 </div>

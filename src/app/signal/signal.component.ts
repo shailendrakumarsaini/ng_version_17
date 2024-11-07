@@ -1,14 +1,15 @@
-import { JsonPipe } from '@angular/common';
+import { JsonPipe, NgIf } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signal',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [JsonPipe,NgIf],
   templateUrl: './signal.component.html',
   styleUrl: './signal.component.scss'
 })
 export class SignalComponent {
+  test = false;
   count = signal(0);
   colors = signal<any[]>(['red', 'green']);
   height = signal(10);

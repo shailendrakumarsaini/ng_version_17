@@ -3,8 +3,10 @@ import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
 import { ThrottleTimeComponent } from './rxjs/throttle-time/throttle-time.component';
+import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
 
 export const routes: Routes = [
+    { path :'currency-converter', component: CurrencyConverterComponent },
     { path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
     { path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
     {
