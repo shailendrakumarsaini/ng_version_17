@@ -12,7 +12,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
 export class StatsComponent {
 
   @Input() teams!: Team;
-  @Input() stats!: Stat;
+  @Input() stats!: any;
 
   ngOnChanges(changes: SimpleChanges): void {
     this.teams = changes['teams']?.currentValue;

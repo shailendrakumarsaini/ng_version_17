@@ -5,13 +5,13 @@ import { combineLatest, map, Observable, startWith, withLatestFrom } from 'rxjs'
 import { ApiService } from '../services/api.service';
 import { Country } from '../models/team.model';
 @Component({
-  selector: 'app-currency-filter',
+  selector: 'app-country-filter',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './currency-filter.component.html',
-  styleUrl: './currency-filter.component.scss'
+  templateUrl: './country-filter.component.html',
+  styleUrl: './country-filter.component.scss'
 })
-export class CurrencyFilterComponent {
+export class CountryFilterComponent {
   service = inject(ApiService);
   filter :FormControl = new FormControl("");
   countries$ : Observable<Country[]> = this.service.getCountries();

@@ -1,0 +1,10 @@
+<input class="filter"
+       placeholder="Enter country name"
+       [formControl]="filter">
+<div class="dropdown-content">
+  @for(country of filteredCountries$ | async; track country?.code){
+    <span data-test="dropdown-item">{{ country?.name }}</span><br>
+  }
+</div>
+<!-- <pre><b>countries :</b>{{ countries$ | async | json }}</pre> -->
+<!-- <pre><b>filteredCountries :</b>{{ filteredCountries$ | async | json }}</pre> -->
