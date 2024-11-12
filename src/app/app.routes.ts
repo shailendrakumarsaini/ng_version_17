@@ -6,8 +6,10 @@ import { ThrottleTimeComponent } from './rxjs/throttle-time/throttle-time.compon
 import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
 import { TeamsComponent } from './teams/teams.component';
 import { CurrencyFilterComponent } from './currency-filter/currency-filter.component';
+import { BasketBallComponent } from './basket-ball/basket-ball.component';
 
 export const routes: Routes = [
+    { path :'basket-ball', component: BasketBallComponent },
     { path :'currency-filter', component: CurrencyFilterComponent },
     { path :'currency-converter', component: CurrencyConverterComponent },
     { path :'team', component: TeamsComponent },

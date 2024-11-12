@@ -1,0 +1,6 @@
+<!-- <pre>{{ teams$ | async | json }}</pre> -->
+
+@for(team of teams$ | async; track team?.id){
+    <button (click)="onTeamSelect(team)">{{team?.full_name}}</button>
+}
+<app-team-stats [team]="selectedTeam" [stats]="stats" *ngIf="selectedTeam"></app-team-stats>
