@@ -10,10 +10,10 @@ import { Component, computed, effect, signal } from '@angular/core';
 })
 export class SignalComponent {
   test = false;
-  count = signal(0);
-  colors = signal<any[]>(['red', 'green']);
-  height = signal(10);
-  width = signal(20);
+  count = signal<number>(0);
+  colors = signal<string[]>(['red', 'green']);
+  height = signal<number>(10);
+  width = signal<number>(20);
   area = computed(()=> this.height() * this.width());
 
   constructor(){

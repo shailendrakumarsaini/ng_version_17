@@ -13,3 +13,8 @@ export interface Team {
     fullname: string, 
     code: string
 }
+
+export interface Country {
+    name: string, 
+    code: string
+}

@@ -6,3 +6,7 @@
 <ng-container *ngFor="let team of teams;">
     <app-stats [teams]="team" [stats]="stats[team.id]" *ngIf="selectedTeam === team.id"></app-stats>
 </ng-container>
+
+<div *ngIf="selectedTeam === -1">
+    No Result
+</div>
