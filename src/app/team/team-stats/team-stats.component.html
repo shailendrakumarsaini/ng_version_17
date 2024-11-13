@@ -1,0 +1,11 @@
+
+<p>{{team.full_name}}[{{team.abbreviation}}]</p>
+<p>{{team.conference}}ern Conference</p>
+<h2>Result of last 5 games</h2>
+@for(win of stats?.lastGames; track win){
+    <p [ngClass]="{'W' : win === 'W', 'L' : win === 'L'}">{{win}}<br></p>
+}
+<p><b>average Points Scored : </b> {{stats?.averagePointsScored}}</p>
+<p><b>average Points Conceded : </b> {{stats?.averagePointsConceded}}</p>
+<!-- <pre>{{ team | json }}</pre>
+<pre>{{ stats | json }}</pre> -->

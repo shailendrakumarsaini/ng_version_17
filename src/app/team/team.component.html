@@ -1,0 +1,9 @@
+@for(team of teams$ | async; track team.id){
+    <button (click)="onTeamSelect(team)">{{team.full_name}}</button>
+}
+
+@if(selectedTeam){
+    <app-team-stats [team]="selectedTeam" [stats]="stats"></app-team-stats>
+} @else{
+    <h3>No Result</h3>
+}
