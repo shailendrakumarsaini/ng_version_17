@@ -1,33 +1,23 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { combineLatest, map, Observable, startWith, withLatestFrom } from 'rxjs';
-import { ApiService } from '../services/api.service';
-import { Country } from '../models/team.model';
+import { CountryService } from '../services/country.service';
+import { Country } from '../models/country.model';
+import { Observable, combineLatest, startWith, map } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-country-filter',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [ReactiveFormsModule, AsyncPipe],
   templateUrl: './country-filter.component.html',
   styleUrl: './country-filter.component.scss'
 })
 export class CountryFilterComponent {
-  service = inject(ApiService);
-  filter :FormControl = new FormControl("");
-  countries$ : Observable<Country[]> = this.service.getCountries();
 
-  // filteredCountries$ = this.countries$.pipe(
-  //   withLatestFrom(this.filter.valueChanges),
-  //   map(([countries, filter]) =>
-  //     countries.filter((country) => country.name.includes(filter ?? ''))
-  //   )
-  // );
+  filter: FormControl = new FormControl("");
+  countryService = inject(CountryService);
+  countries$ : Observable<Country[]> = this.countryService.getCountries();
 
-  filteredCountries$ = combineLatest([ this.countries$, this.filter.valueChanges.pipe(startWith('')) ]) // Start with an empty string initially
-  .pipe(map(([countries, filter]) =>
-      countries.filter((country) => country.name.toLowerCase().includes(filter.toLowerCase()))
-    )
-  );
-
+  filteredCountries$ = combineLatest(this.countries$, this.filter.valueChanges.pipe(startWith(''))).
+  pipe(map(([countries, filter])=> countries.filter((country)=> country.name.toLowerCase().includes(filter.toLowerCase()))));
 
 }
