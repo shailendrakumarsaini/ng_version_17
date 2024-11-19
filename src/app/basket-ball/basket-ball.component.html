@@ -4,7 +4,7 @@
     <button (click)="onTeamSelect(team)">{{team?.full_name}}</button>
 }
 @if(selectedTeam){
-    <app-team-stats [team]="selectedTeam" [stats]="stats"></app-team-stats>
+    <app-team-stats *ngIf="selectedTeam" [team]="selectedTeam" [stats]="stats"></app-team-stats>
 } @else
 {
     <p>No results</p>
