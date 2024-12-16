@@ -10,6 +10,7 @@ import { BasketBallComponent } from './basket-ball/basket-ball.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ViewChildrenComponent } from './view-children/view-children.component';
+import { ContentChildComponent } from './content-child/content-child.component';
 
 export const routes: Routes = [
     { path :'basket-ball', component: BasketBallComponent },
@@ -42,5 +43,6 @@ export const routes: Routes = [
     },
     { path : 'ng-content', component: NgContentComponent },
     { path : 'view-child', component: ViewChildComponent },
-    { path : 'view-children', component: ViewChildrenComponent }
+    { path : 'view-children', component: ViewChildrenComponent },
+    { path : 'content-child', component: ContentChildComponent }
 ];
