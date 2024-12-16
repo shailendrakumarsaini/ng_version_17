@@ -8,6 +8,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { CountryFilterComponent } from './country-filter/country-filter.component';
 import { BasketBallComponent } from './basket-ball/basket-ball.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
+import { ViewChildComponent } from './view-child/view-child.component';
 
 export const routes: Routes = [
     { path :'basket-ball', component: BasketBallComponent },
@@ -38,5 +39,6 @@ export const routes: Routes = [
             { path: 'throttle-time', component : ThrottleTimeComponent }
         ]
     },
-    { path : 'ng-content', component: NgContentComponent }
+    { path : 'ng-content', component: NgContentComponent },
+    { path : 'view-child', component: ViewChildComponent }
 ];
