@@ -9,6 +9,7 @@ import { CountryFilterComponent } from './country-filter/country-filter.componen
 import { BasketBallComponent } from './basket-ball/basket-ball.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { ViewChildComponent } from './view-child/view-child.component';
+import { ViewChildrenComponent } from './view-children/view-children.component';
 
 export const routes: Routes = [
     { path :'basket-ball', component: BasketBallComponent },
@@ -40,5 +41,6 @@ export const routes: Routes = [
         ]
     },
     { path : 'ng-content', component: NgContentComponent },
-    { path : 'view-child', component: ViewChildComponent }
+    { path : 'view-child', component: ViewChildComponent },
+    { path : 'view-children', component: ViewChildrenComponent }
 ];
