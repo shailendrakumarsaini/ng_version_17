@@ -3,6 +3,8 @@ import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
 import { ThrottleTimeComponent } from './rxjs/throttle-time/throttle-time.component';
+import { MergeMapComponent } from './rxjs/merge-map/merge-map.component';
+import { SwitchMapComponent } from './rxjs/switch-map/switch-map.component';
 import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
 import { TeamsComponent } from './teams/teams.component';
 import { CountryFilterComponent } from './country-filter/country-filter.component';
@@ -11,7 +13,6 @@ import { NgContentComponent } from './ng-content/ng-content.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ViewChildrenComponent } from './view-children/view-children.component';
 import { ContentChildComponent } from './content-child/content-child.component';
-import { MergeMapComponent } from './rxjs/merge-map/merge-map.component';
 
 export const routes: Routes = [
     { path :'basket-ball', component: BasketBallComponent },
@@ -41,6 +42,7 @@ export const routes: Routes = [
             { path: 'debounce-time', component : DebounceTimeComponent },
             { path: 'throttle-time', component : ThrottleTimeComponent },
             { path: 'merge-map', component : MergeMapComponent },
+            { path: 'switch-map', component : SwitchMapComponent },
         ]
     },
     { path : 'ng-content', component: NgContentComponent },
