@@ -1,0 +1,12 @@
+<div class="center">
+    <div>
+        <input type="text" [formControl]="searchControl" placeholder="search ...">
+        @if(loading){
+            <div>Loading .......</div>
+        } @else{
+            @for(fruit of fruits; track fruit){
+                <div>{{fruit}}</div>
+            }
+        }
+    </div>
+</div>

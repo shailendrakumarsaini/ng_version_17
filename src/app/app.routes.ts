@@ -11,6 +11,7 @@ import { NgContentComponent } from './ng-content/ng-content.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ViewChildrenComponent } from './view-children/view-children.component';
 import { ContentChildComponent } from './content-child/content-child.component';
+import { MergeMapComponent } from './rxjs/merge-map/merge-map.component';
 
 export const routes: Routes = [
     { path :'basket-ball', component: BasketBallComponent },
@@ -38,7 +39,8 @@ export const routes: Routes = [
             { path: 'map', component: MapComponent },
             { path: 'filter', component : FilterComponent },
             { path: 'debounce-time', component : DebounceTimeComponent },
-            { path: 'throttle-time', component : ThrottleTimeComponent }
+            { path: 'throttle-time', component : ThrottleTimeComponent },
+            { path: 'merge-map', component : MergeMapComponent },
         ]
     },
     { path : 'ng-content', component: NgContentComponent },
