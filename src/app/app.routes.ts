@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { RoleGuard } from './guards/role.guard';
+import { roleGuardFn } from './guards/role.guard';
+
 import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
@@ -14,12 +17,21 @@ import { NgContentComponent } from './ng-content/ng-content.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ViewChildrenComponent } from './view-children/view-children.component';
 import { ContentChildComponent } from './content-child/content-child.component';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    { path :'basket-ball', component: BasketBallComponent },
-    { path :'country-filter', component: CountryFilterComponent },
-    { path :'currency-converter', component: CurrencyConverterComponent },
-    { path :'team', component: TeamsComponent },
+    { path :'', component: HomeComponent },
+    { path :'home', component: HomeComponent },
+    { 
+        path :'basket-ball', component: BasketBallComponent, 
+        canActivate : [
+            // RoleGuard, // interface based implementation
+            roleGuardFn // function based implementation
+        ] },
+    { path :'country-filter', component: CountryFilterComponent, canActivate: [roleGuardFn] },
+    { path :'currency-converter', component: CurrencyConverterComponent, canActivate: [roleGuardFn] },
+    { path :'team', component: TeamsComponent, canActivate: [roleGuardFn] },
     { path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
     { path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
     {
@@ -47,8 +59,10 @@ export const routes: Routes = [
             { path: 'switch-map', component : SwitchMapComponent },
         ]
     },
-    { path : 'ng-content', component: NgContentComponent },
-    { path : 'view-child', component: ViewChildComponent },
-    { path : 'view-children', component: ViewChildrenComponent },
-    { path : 'content-child', component: ContentChildComponent }
+    { path : 'ng-content', component: NgContentComponent, canActivate: [roleGuardFn] },
+    { path : 'view-child', component: ViewChildComponent, canActivate: [roleGuardFn] },
+    { path : 'view-children', component: ViewChildrenComponent, canActivate: [roleGuardFn] },
+    { path : 'content-child', component: ContentChildComponent, canActivate: [roleGuardFn] },
+    { path : 'access-denied', component: AccessDeniedComponent, canActivate: [roleGuardFn] },
+    { path : '**', component: AccessDeniedComponent }
 ];
