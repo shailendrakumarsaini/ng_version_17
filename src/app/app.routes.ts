@@ -3,6 +3,7 @@ import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
 import { ThrottleTimeComponent } from './rxjs/throttle-time/throttle-time.component';
+import { IntervalComponent } from './rxjs/interval/interval.component';
 import { MergeMapComponent } from './rxjs/merge-map/merge-map.component';
 import { SwitchMapComponent } from './rxjs/switch-map/switch-map.component';
 import { CurrencyConverterComponent } from './currency-converter/currency-converter.component';
@@ -41,6 +42,7 @@ export const routes: Routes = [
             { path: 'filter', component : FilterComponent },
             { path: 'debounce-time', component : DebounceTimeComponent },
             { path: 'throttle-time', component : ThrottleTimeComponent },
+            { path: 'interval', component : IntervalComponent },
             { path: 'merge-map', component : MergeMapComponent },
             { path: 'switch-map', component : SwitchMapComponent },
         ]
