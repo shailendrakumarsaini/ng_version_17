@@ -5,7 +5,7 @@ import { RoleService } from "../services/role.service";
 @Injectable({
   providedIn:"root"
 })
-export class RoleGuard implements CanActivate {
+export class RoleCanActivateGuard implements CanActivate {
 
   constructor(
     private roleService: RoleService,
@@ -24,7 +24,7 @@ export class RoleGuard implements CanActivate {
 }
 
 
-export const roleGuardFn: CanActivateFn = (route, state) => {
+export const RoleCanActivateGuardFn: CanActivateFn = (route, state) => {
   const roleService = inject(RoleService);
   const routerService = inject(Router);
 

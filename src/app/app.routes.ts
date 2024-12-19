@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { RoleGuard } from './guards/role.guard';
-import { roleGuardFn } from './guards/role.guard';
+import { RoleCanActivateGuard } from './guards/role.canActivate.guard';
+import { RoleCanActivateGuardFn } from './guards/role.canActivate.guard';
 
 import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
@@ -27,12 +27,12 @@ export const routes: Routes = [
         path :'basket-ball', component: BasketBallComponent, 
         canActivate : [
             // RoleGuard, // interface based implementation
-            roleGuardFn // function based implementation
+            RoleCanActivateGuardFn // function based implementation
         ] 
     },
-    { path :'country-filter', component: CountryFilterComponent, canActivate: [roleGuardFn] },
-    { path :'currency-converter', component: CurrencyConverterComponent, canActivate: [roleGuardFn] },
-    { path :'team', component: TeamsComponent, canActivate: [roleGuardFn] },
+    { path :'country-filter', component: CountryFilterComponent, canActivate: [RoleCanActivateGuardFn] },
+    { path :'currency-converter', component: CurrencyConverterComponent, canActivate: [RoleCanActivateGuardFn] },
+    { path :'team', component: TeamsComponent, canActivate: [RoleCanActivateGuardFn] },
     { path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
     { path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
     {
@@ -60,10 +60,10 @@ export const routes: Routes = [
             { path: 'switch-map', component : SwitchMapComponent },
         ]
     },
-    { path : 'ng-content', component: NgContentComponent, canActivate: [roleGuardFn] },
-    { path : 'view-child', component: ViewChildComponent, canActivate: [roleGuardFn] },
-    { path : 'view-children', component: ViewChildrenComponent, canActivate: [roleGuardFn] },
-    { path : 'content-child', component: ContentChildComponent, canActivate: [roleGuardFn] },
+    { path : 'ng-content', component: NgContentComponent, canActivate: [RoleCanActivateGuardFn] },
+    { path : 'view-child', component: ViewChildComponent, canActivate: [RoleCanActivateGuardFn] },
+    { path : 'view-children', component: ViewChildrenComponent, canActivate: [RoleCanActivateGuardFn] },
+    { path : 'content-child', component: ContentChildComponent, canActivate: [RoleCanActivateGuardFn] },
     { path : 'access-denied', component: AccessDeniedComponent },
     { path : '**', component: AccessDeniedComponent }
 ];
