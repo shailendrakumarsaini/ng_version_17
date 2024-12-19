@@ -16,6 +16,7 @@ export class RoleGuard implements CanActivate {
 
     if(this.roleService.getRole() !== 'admin'){
       this.router.navigate(['/access-denied']);
+      return false;
     }
 
     return true;
@@ -29,6 +30,7 @@ export const roleGuardFn: CanActivateFn = (route, state) => {
 
   if(roleService.getRole() !== 'admin'){
     routerService.navigate(['/access-denied']);
+    return false;
   }
   return true;
 };

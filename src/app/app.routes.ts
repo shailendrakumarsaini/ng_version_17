@@ -28,7 +28,8 @@ export const routes: Routes = [
         canActivate : [
             // RoleGuard, // interface based implementation
             roleGuardFn // function based implementation
-        ] },
+        ] 
+    },
     { path :'country-filter', component: CountryFilterComponent, canActivate: [roleGuardFn] },
     { path :'currency-converter', component: CurrencyConverterComponent, canActivate: [roleGuardFn] },
     { path :'team', component: TeamsComponent, canActivate: [roleGuardFn] },
@@ -63,6 +64,6 @@ export const routes: Routes = [
     { path : 'view-child', component: ViewChildComponent, canActivate: [roleGuardFn] },
     { path : 'view-children', component: ViewChildrenComponent, canActivate: [roleGuardFn] },
     { path : 'content-child', component: ContentChildComponent, canActivate: [roleGuardFn] },
-    { path : 'access-denied', component: AccessDeniedComponent, canActivate: [roleGuardFn] },
+    { path : 'access-denied', component: AccessDeniedComponent },
     { path : '**', component: AccessDeniedComponent }
 ];
