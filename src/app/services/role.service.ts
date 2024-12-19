@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class RoleService {
 
-  role : string  = 'user'
+  role : string  = 'admin'
   constructor() { }
 
   getRole(){

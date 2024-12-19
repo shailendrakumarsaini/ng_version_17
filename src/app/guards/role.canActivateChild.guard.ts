@@ -1,18 +1,19 @@
-import { Injectable, inject } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router, CanActivateFn, MaybeAsync, GuardResult } from "@angular/router";
+
+import { Injectable, inject } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivateChild, GuardResult, MaybeAsync, Router, RouterStateSnapshot, CanActivateChildFn } from "@angular/router";
 import { RoleService } from "../services/role.service";
 
 @Injectable({
   providedIn:"root"
 })
-export class RoleCanActivateGuard implements CanActivate {
+export class RoleCanActivateChildGuard implements CanActivateChild {
 
   constructor(
     private roleService: RoleService,
     private router: Router
   ){}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : MaybeAsync<GuardResult>{
+  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
 
     if(this.roleService.getRole() !== 'admin'){
       this.router.navigate(['/access-denied']);
@@ -21,10 +22,11 @@ export class RoleCanActivateGuard implements CanActivate {
 
     return true;
   }
+
 }
 
 
-export const RoleCanActivateGuardFn: CanActivateFn = (route, state) => {
+export const RoleCanActivateChildGuardFn: CanActivateChildFn = (route, state) => {
   const roleService = inject(RoleService);
   const routerService = inject(Router);
 

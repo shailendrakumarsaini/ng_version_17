@@ -2,6 +2,9 @@ import { Routes } from '@angular/router';
 import { RoleCanActivateGuard } from './guards/role.canActivate.guard';
 import { RoleCanActivateGuardFn } from './guards/role.canActivate.guard';
 
+import { RoleCanActivateChildGuard } from './guards/role.canActivateChild.guard';
+import { RoleCanActivateChildGuardFn } from './guards/role.canActivateChild.guard';
+
 import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
@@ -37,6 +40,10 @@ export const routes: Routes = [
     { path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
     {
         path: 'control-flow', loadComponent: () => import('./control-flow/control-flow.component').then(c => c.ControlFlowComponent),
+        canActivateChild:[
+            // RoleCanActivateChildGuard,
+            RoleCanActivateChildGuardFn
+        ],
         children: [
             { path: '', redirectTo: 'if', pathMatch: 'full' },
             { path: 'if', loadComponent: () => import('./control-flow/if/if.component').then(c => c.IfComponent) },
@@ -49,6 +56,10 @@ export const routes: Routes = [
     { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
     {
         path: 'rxjs', loadComponent: () => import('./rxjs/rxjs.component').then(c => c.RxjsComponent),
+        canActivateChild:[
+            // RoleCanActivateChildGuard,
+            RoleCanActivateChildGuardFn
+        ],
         children: [
             { path: '', redirectTo: 'map', pathMatch: 'full' },
             { path: 'map', component: MapComponent },
