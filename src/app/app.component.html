@@ -1,20 +1,27 @@
 
-<nav>
-    <a [routerLink]="'/'">Home</a>
-    <a [routerLink]="'/basket-ball'">Basket Ball</a>
-    <a [routerLink]="'/country-filter'">Country Filter</a>
-    <a [routerLink]="'/currency-converter'">Currency Converter</a>
-    <a [routerLink]="'/team'">team</a>
-    <a [routerLink]="'/signal'"> Signal</a>
-    <a [routerLink]="'/subject'"> Subject</a>
-    <a [routerLink]="'/control-flow'"> Control-Flow</a>
-    <a [routerLink]="'/deferred-loading'"> Deferred Loading</a>
-    <a [routerLink]="'/user'"> User</a>
-    <a [routerLink]="'/rxjs'"> Rxjs</a>
-    <a [routerLink]="'/ng-content'"> Ng-content</a>
-    <a [routerLink]="'/view-child'"> ViewChild</a>
-    <a [routerLink]="'/view-children'"> ViewChildren</a>
-    <a [routerLink]="'/content-child'"> ContentChild</a>
-</nav>
-
-<router-outlet />
+<div class="page">
+    <nav>
+        <a [routerLink]="'/'">Home</a>
+        <a [routerLink]="'/basket-ball'">Basket Ball</a>
+        <a [routerLink]="'/country-filter'">Country Filter</a>
+        <a [routerLink]="'/currency-converter'">Currency Converter</a>
+        <a [routerLink]="'/team'">team</a>
+        <a [routerLink]="'/signal'"> Signal</a>
+        <a [routerLink]="'/subject'"> Subject</a>
+        <a [routerLink]="'/control-flow'"> Control-Flow</a>
+        <a [routerLink]="'/deferred-loading'"> Deferred Loading</a>
+        <a [routerLink]="'/user'"> User</a>
+    </nav>
+    <nav>
+        <a [routerLink]="'/rxjs'"> Rxjs</a>
+        <a [routerLink]="'/ng-content'"> Ng-content</a>
+        <a [routerLink]="'/view-child'"> ViewChild</a>
+        <a [routerLink]="'/view-children'"> ViewChildren</a>
+        <a [routerLink]="'/content-child'"> ContentChild</a>
+        <a [routerLink]="'/not-complete'"> Not-Complete</a>
+    </nav>
+    
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

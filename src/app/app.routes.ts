@@ -5,6 +5,9 @@ import { RoleCanActivateGuardFn } from './guards/role.canActivate.guard';
 import { RoleCanActivateChildGuard } from './guards/role.canActivateChild.guard';
 import { RoleCanActivateChildGuardFn } from './guards/role.canActivateChild.guard';
 
+import { RoleCanDeactivateGuard } from './guards/role.canDeactivate.guard';
+import { RoleCanDeactivateGuardFn } from './guards/role.canDeactivate.guard';
+
 import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
@@ -20,6 +23,7 @@ import { NgContentComponent } from './ng-content/ng-content.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ViewChildrenComponent } from './view-children/view-children.component';
 import { ContentChildComponent } from './content-child/content-child.component';
+import { NotCompleteComponent } from './not-complete/not-complete.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { HomeComponent } from './home/home.component';
 
@@ -41,8 +45,8 @@ export const routes: Routes = [
     {
         path: 'control-flow', loadComponent: () => import('./control-flow/control-flow.component').then(c => c.ControlFlowComponent),
         canActivateChild:[
-            // RoleCanActivateChildGuard,
-            RoleCanActivateChildGuardFn
+            // RoleCanActivateChildGuard, // interface based implementation
+            RoleCanActivateChildGuardFn // function based implementation
         ],
         children: [
             { path: '', redirectTo: 'if', pathMatch: 'full' },
@@ -75,6 +79,12 @@ export const routes: Routes = [
     { path : 'view-child', component: ViewChildComponent, canActivate: [RoleCanActivateGuardFn] },
     { path : 'view-children', component: ViewChildrenComponent, canActivate: [RoleCanActivateGuardFn] },
     { path : 'content-child', component: ContentChildComponent, canActivate: [RoleCanActivateGuardFn] },
+    { path : 'not-complete', component: NotCompleteComponent, 
+        canDeactivate: [
+            // RoleCanDeactivateGuard, // interface based implementation
+            RoleCanDeactivateGuardFn // function based implementation
+        ] 
+    },
     { path : 'access-denied', component: AccessDeniedComponent },
     { path : '**', component: AccessDeniedComponent }
 ];
