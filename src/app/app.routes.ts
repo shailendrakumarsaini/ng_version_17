@@ -8,6 +8,9 @@ import { RoleCanActivateChildGuardFn } from './guards/role.canActivateChild.guar
 import { RoleCanDeactivateGuard } from './guards/role.canDeactivate.guard';
 import { RoleCanDeactivateGuardFn } from './guards/role.canDeactivate.guard';
 
+import { RoleCanLoadGuard } from './guards/role.canLoad.guard';
+import { RoleCanLoadGuardFn } from './guards/role.canLoad.guard';
+
 import { MapComponent } from './rxjs/map/map.component';
 import { FilterComponent } from './rxjs/filter/filter.component';
 import { DebounceTimeComponent } from './rxjs/debounce-time/debounce-time.component';
@@ -57,7 +60,12 @@ export const routes: Routes = [
         ]
     },
     { path: 'deferred-loading', loadComponent: () => import('./deferred-loading/deferred-loading.component').then(c => c.DeferredLoadingComponent) },
-    { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+    {   path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+        canLoad: [
+            RoleCanLoadGuard, // interface based implementation
+            RoleCanLoadGuardFn // function based implementation
+        ]
+    },
     {
         path: 'rxjs', loadComponent: () => import('./rxjs/rxjs.component').then(c => c.RxjsComponent),
         canActivateChild:[
