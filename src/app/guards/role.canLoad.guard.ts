@@ -1,6 +1,6 @@
 
 import { inject, Injectable } from "@angular/core";
-import { CanLoad, GuardResult, MaybeAsync, Route, Router, UrlSegment } from "@angular/router";
+import { ActivatedRouteSnapshot, CanLoad, GuardResult, MaybeAsync, Route, Router, RouterStateSnapshot, UrlSegment } from "@angular/router";
 import { CanActivateFn } from '@angular/router';
 import { RoleService } from "../services/role.service";
 
@@ -23,7 +23,7 @@ export class RoleCanLoadGuard implements CanLoad {
     }
 }
 
-export const RoleCanLoadGuardFn: CanActivateFn = (route, state) => {
+export const RoleCanLoadGuardFn: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const roleService = inject(RoleService);
     const router = inject(Router);
 

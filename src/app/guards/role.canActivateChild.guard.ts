@@ -26,7 +26,7 @@ export class RoleCanActivateChildGuard implements CanActivateChild {
 }
 
 
-export const RoleCanActivateChildGuardFn: CanActivateChildFn = (route, state) => {
+export const RoleCanActivateChildGuardFn: CanActivateChildFn = (childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const roleService = inject(RoleService);
   const routerService = inject(Router);
 

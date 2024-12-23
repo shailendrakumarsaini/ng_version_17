@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserViewComponent } from './user-view/user-view.component';
+import { UserViewComponent as UserListComponent } from './user-view/user-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { RoleResolveGuard } from '../guards/role.resolve.guard';
+import { RoleResolveGuardFn } from '../guards/role.resolve.guard';
 
 const routes :Routes = [
-  { path : '', component : UserViewComponent }
+  { path : '', component : UserListComponent },
+  { path : ':id', component : UserDetailsComponent,
+    // resolve : { data : RoleResolveGuard }, // interface based implementation
+    resolve : { data : RoleResolveGuardFn }, // function based implementation
+  },
 ]
 @NgModule({
   declarations: [
-    UserViewComponent
+    UserListComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,

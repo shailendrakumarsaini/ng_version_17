@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanDeactivateFn, CanActivateFn } from '@angular/router';
+import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanDeactivateFn } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class RoleCanDeactivateGuard implements CanDeactivate<unknown> {
   }
 }
 
-export const RoleCanDeactivateGuardFn: CanActivateFn = (route, state) => {
+export const RoleCanDeactivateGuardFn: CanDeactivateFn<boolean> = (component: boolean, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState: RouterStateSnapshot) => {
   let response = confirm('Are you sure you want to leave!');
 
   if (response == true) {

@@ -24,7 +24,7 @@ export class RoleCanActivateGuard implements CanActivate {
 }
 
 
-export const RoleCanActivateGuardFn: CanActivateFn = (route, state) => {
+export const RoleCanActivateGuardFn: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const roleService = inject(RoleService);
   const routerService = inject(Router);
 
