@@ -26,11 +26,28 @@ export class CurrencyConverterComponent {
   }
 
   convertToRate(amount: any, convertFrom: any, convertTo: any) {
-    let result = 0;
-    let response = this.apiService.getRates(convertFrom);
-    console.log(response);
-    result = parseFloat(response.rates[convertTo].toFixed(2));
-    console.log(result);
-    this.resultText = `${amount} ${convertFrom} = ${result} ${convertTo}`;
+    // let result = 0;
+    // let response = this.apiService.getRates(convertFrom);
+    // console.log(response);
+    // result = parseFloat(response.rates[convertTo].toFixed(2));
+    // console.log(result);
+    // this.resultText = `${amount} ${convertFrom} = ${result} ${convertTo}`;
+
+
+    this.apiService.getRates(convertFrom).subscribe({
+      next: (res)=>{
+        let result = 0;
+        let response = res;
+        result = parseFloat(response.rates[convertTo].toFixed(2));
+        console.log(result);
+        this.resultText = `${amount} ${convertFrom} = ${result} ${convertTo}`;
+      },
+      complete : () =>{
+        console.log('Requested completed');
+      },
+      error : (err) =>{
+        console.log('error', err);
+      }
+    })
   }
 }

@@ -31,8 +31,8 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    { path :'', component: HomeComponent },
-    { path :'home', component: HomeComponent },
+    {   path :'', component: HomeComponent },
+    {   path :'home', component: HomeComponent },
     { 
         path :'basket-ball', component: BasketBallComponent, 
         canActivate : [
@@ -40,11 +40,11 @@ export const routes: Routes = [
             RoleCanActivateGuardFn // function based implementation
         ] 
     },
-    { path :'country-filter', component: CountryFilterComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path :'currency-converter', component: CurrencyConverterComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path :'team', component: TeamsComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
-    { path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
+    {   path :'country-filter', component: CountryFilterComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path :'currency-converter', component: CurrencyConverterComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path :'team', component: TeamsComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path: 'signal', loadComponent: () => import('./signal/signal.component').then(c => c.SignalComponent) },
+    {   path: 'subject', loadComponent: () => import('./subject/subject.component').then(c => c.SubjectComponent) },
     {
         path: 'control-flow', loadComponent: () => import('./control-flow/control-flow.component').then(c => c.ControlFlowComponent),
         canActivateChild:[
@@ -59,7 +59,7 @@ export const routes: Routes = [
             { path: 'switch', loadComponent: () => import('./control-flow/switch/switch.component').then(c => c.SwitchComponent) },
         ]
     },
-    { path: 'deferred-loading', loadComponent: () => import('./deferred-loading/deferred-loading.component').then(c => c.DeferredLoadingComponent) },
+    {   path: 'deferred-loading', loadComponent: () => import('./deferred-loading/deferred-loading.component').then(c => c.DeferredLoadingComponent) },
     {   path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule),
         canLoad: [
             RoleCanLoadGuard, // interface based implementation
@@ -83,16 +83,16 @@ export const routes: Routes = [
             { path: 'switch-map', component : SwitchMapComponent },
         ]
     },
-    { path : 'ng-content', component: NgContentComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path : 'view-child', component: ViewChildComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path : 'view-children', component: ViewChildrenComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path : 'content-child', component: ContentChildComponent, canActivate: [RoleCanActivateGuardFn] },
-    { path : 'not-complete', component: NotCompleteComponent, 
+    {   path : 'ng-content', component: NgContentComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path : 'view-child', component: ViewChildComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path : 'view-children', component: ViewChildrenComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path : 'content-child', component: ContentChildComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path : 'not-complete', component: NotCompleteComponent, 
         canDeactivate: [
             // RoleCanDeactivateGuard, // interface based implementation
             RoleCanDeactivateGuardFn // function based implementation
         ] 
     },
-    { path : 'access-denied', component: AccessDeniedComponent },
-    { path : '**', component: AccessDeniedComponent }
+    {   path : 'access-denied', component: AccessDeniedComponent },
+    {   path : '**', component: AccessDeniedComponent }
 ];
