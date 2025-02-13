@@ -29,6 +29,7 @@ import { ContentChildComponent } from './content-child/content-child.component';
 import { NotCompleteComponent } from './not-complete/not-complete.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { HomeComponent } from './home/home.component';
+import { ConcatMapComponent } from './rxjs/concat-map/concat-map.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -81,6 +82,7 @@ export const routes: Routes = [
             { path: 'interval', component : IntervalComponent },
             { path: 'merge-map', component : MergeMapComponent },
             { path: 'switch-map', component : SwitchMapComponent },
+            { path: 'concat-map', component : ConcatMapComponent },
         ]
     },
     {   path : 'ng-content', component: NgContentComponent, canActivate: [RoleCanActivateGuardFn] },
