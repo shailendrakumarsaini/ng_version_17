@@ -30,6 +30,7 @@ import { NotCompleteComponent } from './not-complete/not-complete.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { HomeComponent } from './home/home.component';
 import { ConcatMapComponent } from './rxjs/concat-map/concat-map.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -94,6 +95,9 @@ export const routes: Routes = [
             // RoleCanDeactivateGuard, // interface based implementation
             RoleCanDeactivateGuardFn // function based implementation
         ] 
+    },
+    {
+        path : 'reactive-form', component: ReactiveFormComponent
     },
     {   path : 'access-denied', component: AccessDeniedComponent },
     {   path : '**', component: AccessDeniedComponent }
