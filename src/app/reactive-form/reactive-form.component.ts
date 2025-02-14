@@ -21,13 +21,17 @@ export class ReactiveFormComponent {
         age: ["", [Validators.required]],
       }),
       skills : this.fb.array([this.createSkillControl()])
-    })
+    });
+  }
 
+  get skillFormArray () {
+    return this.form.get('skills') as FormArray;
   }
 
   createSkillControl(): FormControl {
     return this.fb.control("",[Validators.required]);
   }
+
   addSkill(){
     (this.form.get('skills') as FormArray).push(this.createSkillControl())
   }
@@ -36,14 +40,8 @@ export class ReactiveFormComponent {
     (this.form.get('skills') as FormArray).removeAt(skillIndex);
   }
 
-  get skillFormArray () {
-    return this.form.get('skills') as FormArray;
-  }
-
   onSubmit(){
     console.log(this.form.value);
   }
-
-
 
 }

@@ -31,6 +31,7 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { HomeComponent } from './home/home.component';
 import { ConcatMapComponent } from './rxjs/concat-map/concat-map.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -96,9 +97,8 @@ export const routes: Routes = [
             RoleCanDeactivateGuardFn // function based implementation
         ] 
     },
-    {
-        path : 'reactive-form', component: ReactiveFormComponent
-    },
+    {   path : 'reactive-form', component: ReactiveFormComponent },
+    {   path : 'template-driven-form', component: TemplateDrivenFormComponent },
     {   path : 'access-denied', component: AccessDeniedComponent },
     {   path : '**', component: AccessDeniedComponent }
 ];
