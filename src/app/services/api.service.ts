@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, shareReplay, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../models/team.model';
+import { CacheService } from './cache.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  constructor(private httpClient: HttpClient) { }
+  private users$!: Observable<any>;
+  constructor(private httpClient: HttpClient, private cacheService : CacheService) { }
 
   getRates(base: string) : Observable<any> {
 
@@ -274,4 +275,50 @@ export class ApiService {
       {name: 'Zimbabwe', code: 'ZW'} 
     ]);
   }
+
+  // service level caching
+  public getUsers() {  
+    const cachedData = this.cacheService.get('users');  
+    if (cachedData) {  
+        return of(cachedData);  
+    }  
+
+    return this.httpClient.get<any>('https://randomuser.me/api/?results=5').pipe(  
+        tap((data: any) => {  
+          this.cacheService.put('users', data);  
+        })  
+    );  
+  }
+
+
+  // with rxjs operator caching
+  // with rxjs operators shareReplay publishReplay  
+  public getUsersData() {  
+    this.users$ = this.httpClient  
+        .get<any>('https://randomuser.me/api/?results=5')  
+        .pipe(  
+            tap((data: any) => {  
+                console.log('Fetched user data from API');  
+            }),  
+            shareReplay(1, 1) // Caches the response and replays it for subsequent subscriptions  
+        );  
+  }
+
+  // with rxjs localStorage and sessionStorage caching
+  public getUsersInfo() {  
+    const users = JSON.parse(sessionStorage.getItem('users') || '[]');  
+    if (!users) {  
+      console.log('cache miss');
+      return this.httpClient.get('https://randomuser.me/api/?results=5').pipe(  
+        tap((data: any) => {  
+            sessionStorage.setItem('users', JSON.stringify(data));  
+        })  
+      );   
+    }  
+
+    console.log("cache hit");
+    return of(JSON.parse(sessionStorage.getItem("users")|| '[]'));
+ 
+  }
+
 }
