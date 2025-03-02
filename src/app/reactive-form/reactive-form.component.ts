@@ -24,11 +24,15 @@ export class ReactiveFormComponent {
     });
 
     this.form.valueChanges.subscribe(changes=>{
-      console.log(changes);
+      console.log('form valueChanges', changes);
     });
 
     this.form.controls['title'].valueChanges.subscribe(title=>{
-      console.log(title);
+      console.log('title valueChanges', title);
+    });
+
+    this.form.controls['skills'].valueChanges.subscribe(skills=>{
+      console.log('skills valueChanges', skills);
     });
   }
 
@@ -50,6 +54,14 @@ export class ReactiveFormComponent {
 
   onSubmit(){
     console.log(this.form.value);
+  }
+
+  addDesignationCtrl(){
+    this.form.addControl('designation', new FormControl("", [Validators.required]));
+  }
+
+  removeDesignationCtrl(){
+    this.form.removeControl('designation');
   }
 
 }

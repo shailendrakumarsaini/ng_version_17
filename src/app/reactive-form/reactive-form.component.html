@@ -1,9 +1,15 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <button *ngIf="!form.get('designation')" (click)="addDesignationCtrl()">Add Designation Control</button><br>
+
+    <button *ngIf="form.get('designation')" (click)="removeDesignationCtrl()">Remove Designation Control</button><br>
+
     <label for="">Title</label><br>
     <input type="text" formControlName="title" placeholder="title"><br>
-    <div *ngIf="form.get('title')?.hasError('noSpaceError')">
-        Username cannot contain spaces.
-      </div>
+    <div *ngIf="form.get('title')?.hasError('noSpaceError')">Username cannot contain spaces.</div>
+    <div *ngIf="form.get('designation')">
+        <label for="">designation</label><br>
+        <input type="text" formControlName="designation" placeholder="designation"><br>
+    </div>
     <div formGroupName="userDetails">
         <label for="">name</label><br>
         <input type="text" formControlName="name" placeholder="name"><br>
@@ -19,7 +25,9 @@
             <input [formControlName]="skillIndex" placeholder="skill" />
             <button (click)="removeSkill(skillIndex)"> - </button>
         </ng-container>
-    </div>
+    </div><br>
+
+    <button type="submit"> Submit Form</button>
 
     <pre>{{form.value | json}}</pre>
 </form>
