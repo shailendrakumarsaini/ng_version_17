@@ -33,6 +33,7 @@ import { ConcatMapComponent } from './rxjs/concat-map/concat-map.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { ParentComponent } from './input-output/parent/parent.component';
+import { TemplateControlContainerComponent } from './template-control-container/template-control-container.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -101,6 +102,7 @@ export const routes: Routes = [
     {   path : 'reactive-form', component: ReactiveFormComponent },
     {   path : 'template-driven-form', component: TemplateDrivenFormComponent },
     {   path : 'input-output', component: ParentComponent },
+    {   path : 'template-control-container', component: TemplateControlContainerComponent },
     {   path : 'access-denied', component: AccessDeniedComponent },
     {   path : '**', component: AccessDeniedComponent }
 ];

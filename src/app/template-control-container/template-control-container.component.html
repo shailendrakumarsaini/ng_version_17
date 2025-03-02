@@ -1,0 +1,6 @@
+<form #myForm="ngForm" (ngSubmit)="submitForm()">
+    <app-child-one></app-child-one>
+    <app-child-two></app-child-two>
+  
+    <button type="submit" [disabled]="myForm.invalid">Submit</button>
+  </form>
