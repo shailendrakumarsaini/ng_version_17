@@ -1,21 +1,22 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <input type="text" formControlName="title"><br>
+    <label for="">Title</label><br>
+    <input type="text" formControlName="title" placeholder="title"><br>
     <div formGroupName="userDetails">
-
-        <input type="text" formControlName="name"><br>
-        <input type="text" formControlName="age"><br>
+        <label for="">name</label><br>
+        <input type="text" formControlName="name" placeholder="name"><br>
+        <label for="">age</label><br>
+        <input type="text" formControlName="age" placeholder="age"><br>
     </div>
     <br><br>
   <button (click)="addSkill()">add</button>
     <div formArrayName="skills" >
         <ng-container *ngFor="let skill of skillFormArray['controls']; let skillIndex = index">
-
             <hr />
-            <input [formControlName]="skillIndex" />
+            <label for="">Skill</label><br>
+            <input [formControlName]="skillIndex" placeholder="skill" />
             <button (click)="removeSkill(skillIndex)">add</button>
         </ng-container>
     </div>
 
-    <!-- <pre>{{form?.value | json}}</pre> -->
+    <pre>{{form.value | json}}</pre>
 </form>
