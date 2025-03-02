@@ -1,6 +1,9 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <label for="">Title</label><br>
     <input type="text" formControlName="title" placeholder="title"><br>
+    <div *ngIf="form.get('title')?.hasError('noSpaceError')">
+        Username cannot contain spaces.
+      </div>
     <div formGroupName="userDetails">
         <label for="">name</label><br>
         <input type="text" formControlName="name" placeholder="name"><br>
@@ -14,7 +17,7 @@
             <hr />
             <label for="">Skill</label><br>
             <input [formControlName]="skillIndex" placeholder="skill" />
-            <button (click)="removeSkill(skillIndex)">add</button>
+            <button (click)="removeSkill(skillIndex)"> - </button>
         </ng-container>
     </div>
 
