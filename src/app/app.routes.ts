@@ -34,6 +34,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { ParentComponent } from './input-output/parent/parent.component';
 import { TemplateControlContainerComponent } from './template-control-container/template-control-container.component';
+import { ParentComponent as DiParent } from './parent/parent.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -104,5 +105,6 @@ export const routes: Routes = [
     {   path : 'input-output', component: ParentComponent },
     {   path : 'template-control-container', component: TemplateControlContainerComponent },
     {   path : 'access-denied', component: AccessDeniedComponent },
+    {   path : 'parent', component: DiParent },
     {   path : '**', component: AccessDeniedComponent }
 ];

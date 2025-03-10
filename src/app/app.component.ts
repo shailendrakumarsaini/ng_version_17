@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { LoggerService } from './services/logger.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,11 +10,11 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
 
+  constructor(private loggerService :LoggerService){}
 
-  constructor(){}
-
-
-  ngOnInit(): void {}
+  log(){
+    this.loggerService.log("Button is clicked");
+  }
 
 
 }
