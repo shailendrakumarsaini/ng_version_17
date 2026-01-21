@@ -35,6 +35,7 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
 import { ParentComponent } from './input-output/parent/parent.component';
 import { TemplateControlContainerComponent } from './template-control-container/template-control-container.component';
 import { ParentComponent as DiParent } from './parent/parent.component';
+import { ViewEncapsulationComponent } from './view-encapsulation/view-encapsulation.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -101,6 +102,7 @@ export const routes: Routes = [
         ] 
     },
     {   path : 'reactive-form', component: ReactiveFormComponent },
+    {   path : 'view-encapsulation', component: ViewEncapsulationComponent },
     {   path : 'template-driven-form', component: TemplateDrivenFormComponent },
     {   path : 'input-output', component: ParentComponent },
     {   path : 'template-control-container', component: TemplateControlContainerComponent },
