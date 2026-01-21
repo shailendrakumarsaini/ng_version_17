@@ -1,0 +1,21 @@
+<ul>
+    <li>
+    Observables are lazy, promises are eagger meaning Observables are not executed until we subscribe to them using the subscribe() method whereas Promises executes immediately after its creation.
+    </li>
+    <li>
+    Observables Emit multiple values over a period of time whereas Promises Emit a single value at a time
+    </li>
+    <li>
+    Subscription of Observables can be cancelled, but promises subscription cannot be cancelled
+    </li>
+    <li>
+    Promises are always asynchronous but Observable can be synchronous or asynchronous
+    </li>
+</ul>
+
+<div class="button-container">
+  <button class="circle-button red" (click)="create()"> Create</button>
+  <button class="circle-button blue" (click)="execute()">Excute</button>
+  <button class="circle-button green" (click)="cancel()">Cancel</button>
+</div>
+

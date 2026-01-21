@@ -36,6 +36,7 @@ import { ParentComponent } from './input-output/parent/parent.component';
 import { TemplateControlContainerComponent } from './template-control-container/template-control-container.component';
 import { ParentComponent as DiParent } from './parent/parent.component';
 import { ViewEncapsulationComponent } from './view-encapsulation/view-encapsulation.component';
+import { ObservablesPromiseDifferenceComponent } from './rxjs/observables-promise-difference/observables-promise-difference.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -81,6 +82,7 @@ export const routes: Routes = [
         ],
         children: [
             { path: '', redirectTo: 'map', pathMatch: 'full' },
+            { path: 'observables-promise-difference', component: ObservablesPromiseDifferenceComponent },
             { path: 'map', component: MapComponent },
             { path: 'filter', component : FilterComponent },
             { path: 'debounce-time', component : DebounceTimeComponent },
