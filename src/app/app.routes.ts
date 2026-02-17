@@ -37,6 +37,7 @@ import { TemplateControlContainerComponent } from './template-control-container/
 import { ParentComponent as DiParent } from './parent/parent.component';
 import { ViewEncapsulationComponent } from './view-encapsulation/view-encapsulation.component';
 import { ObservablesPromiseDifferenceComponent } from './rxjs/observables-promise-difference/observables-promise-difference.component';
+import { ContentChildrenComponent } from './content-children/content-children.component';
 
 export const routes: Routes = [
     {   path :'', component: HomeComponent },
@@ -97,6 +98,7 @@ export const routes: Routes = [
     {   path : 'view-child', component: ViewChildComponent, canActivate: [RoleCanActivateGuardFn] },
     {   path : 'view-children', component: ViewChildrenComponent, canActivate: [RoleCanActivateGuardFn] },
     {   path : 'content-child', component: ContentChildComponent, canActivate: [RoleCanActivateGuardFn] },
+    {   path : 'content-children', component: ContentChildrenComponent, canActivate: [RoleCanActivateGuardFn] },
     {   path : 'not-complete', component: NotCompleteComponent, 
         canDeactivate: [
             // RoleCanDeactivateGuard, // interface based implementation
